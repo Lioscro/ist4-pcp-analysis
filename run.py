@@ -4,15 +4,29 @@ run.py
 Command-line utility to run PCP solvers in bulk.
 """
 import os
+import sys
 import time
 import traceback
 import importlib
 import random
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
 import src.correct_solver as correct_solver
 import numpy as np
 import pandas as pd
+
+# JB's favorite Seaborn settings for notebooks
+rc = {'lines.linewidth': 2,
+      'axes.labelsize': 12,
+      'axes.titlesize': 14,
+      'axes.facecolor': 'DFDFE5'}
+sns.set_context('notebook', rc=rc)
+sns.set_style("dark")
+
+mpl.rcParams['xtick.labelsize'] = 12
+mpl.rcParams['ytick.labelsize'] = 12
+mpl.rcParams['legend.fontsize'] = 10
 
 # The name of the solver script.
 # Only directories that have this exact file will be considered.
@@ -154,7 +168,9 @@ def run(name, path, targets, t):
     the targets.
     '''
     # DF that contains all run info.
+    sys.path.append(path)
     df = _run_sim(name, _import_solver(path), targets, t)
+    sys.path.remove(path)
 
     # Save the df to the folder.
     df.to_csv(os.path.join(path, 'run.csv'), index=False)
@@ -169,10 +185,10 @@ def run(name, path, targets, t):
     # Generate plots.
     plot_length, _ = _plot(avg_length, 'length', name + '_time', name, t)
     plot_length.savefig(os.path.join(path, 'avg_time_length.png'),
-                                     bbox_inches='tight')
+                                     bbox_inches='tight', dpi=300)
     plot_dist, _ = _plot(avg_dist, 'steps', name + '_time', name, t)
     plot_dist.savefig(os.path.join(path, 'avg_time_dist.png'),
-                                   bbox_inches='tight')
+                                   bbox_inches='tight', dpi=300)
 
     return df, avg_length, avg_dist
 
@@ -249,7 +265,7 @@ def _plot_all(df, x, y, hue, t, path):
         ax.axhline(t, linestyle='--', color='r', linewidth=0.5,
                    label='cutoff ({})'.format(t))
         ax.legend()
-    fig.savefig(path, bbox_inches='tight')
+    fig.savefig(path, bbox_inches='tight', dpi=300)
 
 if __name__ == '__main__':
     import math

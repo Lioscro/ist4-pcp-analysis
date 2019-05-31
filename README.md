@@ -32,7 +32,9 @@ Since every student will submit their own `solver.py`, and calling the function
 own subdirectory. It will be beneficial to name the subdirectory as the
 student's name, but without spaces. The example directory contains four
 students, each labeled with an integer. They all have their own `solver.py`
-submissions, which are contained within their respective folders.
+submissions, which are contained within their respective folders. Note that
+`student4`'s submission intentionally crashes, in order to show that this
+script handles crashes gracefully.
 
 ### Batch Execution and Plotting
 #### Basic command
