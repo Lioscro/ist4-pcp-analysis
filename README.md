@@ -7,6 +7,7 @@ Command-line tool to help bulk execution and graph plotting for Caltech IST4 Pro
 - Pandas
 - Matplotlib
 - Seaborn
+
 All of these are automatically installed with Anaconda.
 
 ## Usage
