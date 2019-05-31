@@ -73,3 +73,6 @@ limit of three seconds would be
 ```
 python run.py solvers/example 30 -t 3
 ```
+
+#### Sample Graph
+![Sample Graph](solvers/example/avg_time_length_all.png)
