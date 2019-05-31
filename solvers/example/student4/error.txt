@@ -1,9 +1,9 @@
 name 'safsd' is not definedTraceback (most recent call last):
-  File "run.py", line 191, in run_all
+  File "run.py", line 207, in run_all
     df, avg_length, avg_dist = run(name, path, targets, t)
-  File "run.py", line 157, in run
+  File "run.py", line 172, in run
     df = _run_sim(name, _import_solver(path), targets, t)
-  File "run.py", line 102, in _run_sim
+  File "run.py", line 116, in _run_sim
     calc_step = func(target)
   File "/Users/josephmin/Documents/GitHub/ist4-pcp-analysis/solvers/example/student4/solver.py", line 107, in solve
     safsd
