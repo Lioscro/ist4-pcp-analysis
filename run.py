@@ -17,16 +17,16 @@ import numpy as np
 import pandas as pd
 
 # JB's favorite Seaborn settings for notebooks
-rc = {'lines.linewidth': 2,
-      'axes.labelsize': 12,
-      'axes.titlesize': 14,
+rc = {'lines.linewidth': 1.5,
+      'axes.labelsize': 10,
+      'axes.titlesize': 12,
       'axes.facecolor': 'DFDFE5'}
-sns.set_context('notebook', rc=rc)
+# sns.set_context('notebook', rc=rc)
 sns.set_style("dark")
 
-mpl.rcParams['xtick.labelsize'] = 12
-mpl.rcParams['ytick.labelsize'] = 12
-mpl.rcParams['legend.fontsize'] = 10
+mpl.rcParams['xtick.labelsize'] = 10
+mpl.rcParams['ytick.labelsize'] = 10
+mpl.rcParams['legend.fontsize'] = 8
 
 # The name of the solver script.
 # Only directories that have this exact file will be considered.
